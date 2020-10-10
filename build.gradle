@@ -1,0 +1,42 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.coding'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'info.movito', name:'themoviedbapi', version:'1.10'
+	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation('org.powermock:powermock-module-javaagent:1.7.4')
+	testImplementation('org.powermock:powermock-module-junit4-rule-agent:1.7.4')
+	testImplementation('org.powermock:powermock-module-junit4:1.7.4')
+	testImplementation('org.powermock:powermock-api-mockito:1.7.4')
+	testImplementation('org.powermock:powermock-api-mockito-common:1.7.4')
+	testImplementation('org.powermock:powermock-api-support:1.7.4')
+	testImplementation('org.powermock:powermock-core:1.7.4')
+	testImplementation('org.powermock:powermock-reflect:1.7.4')
+	testImplementation('org.powermock:powermock-api-support:1.7.4')
+	testImplementation('org.mockito:mockito-all:1.10.19')
+	testImplementation('org.springframework:spring-mock:2.0.8')
+	testImplementation('org.springframework:spring-test:4.1.9.RELEASE')
+
+}
+
+test {
+	useJUnitPlatform()
+}
